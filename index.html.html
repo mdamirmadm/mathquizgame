@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maths Quiz Game</title>
+    <style type="text/css">
+      body {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #82ccdd;
+      }
+      section h1 {
+        text-transform: capitalize;
+        padding-bottom: 30px;
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px white;
+      }
+      #center-div {
+        width: 500px;
+        height: 400px;
+        background-color: #78e087;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #insert-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+      #value1,
+      #value2 {
+        text-align: center;
+        width: 35px;
+        padding: 20px 30px;
+        font-size: 30px;
+        box-shadow: 1px 1px 0px #999, 2px 2px 0px #999, 3px 3px 0px #999,
+          4px 4px 0px #999, 5px 5px 0px #999, 6px 6px 0px #999;
+      }
+      p {
+        font-size: 60px;
+        font-weight: bold;
+        margin: 0px 10px 0px 15px;
+      }
+      #middle-box #answer {
+        margin: 30px 0px;
+        font-size: 30px;
+        padding: 5px;
+        text-align: center;
+        width: 180px;
+      }
+      #submitBtn {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-size: 18px;
+        border: none;
+        color: white;
+        background-color: #079992;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>Maths Addition Quiz Game</h1>
+      <div id="center-div">
+        <div id="insert-box">
+          <div class="box">
+            <input type="text" id="value1" />
+          </div>
+          <div class="box">
+            <p>+</p>
+          </div>
+          <div class="box">
+            <input type="text" id="value2" />
+          </div>
+        </div>
+        <div id="middle-box">
+          <input type="text" id="answer" />
+        </div>
+        <div id="sentBox">
+          <button id="submitBtn">Check Answer</button>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      let num1 = Math.floor(Math.random() * 10);
+      let num2 = Math.floor(Math.random() * 10);
+      document.getElementById("value1").value = num1;
+      document.getElementById("value2").value = num2;
+      let ans = num1 + num2;
+
+      document.getElementById("submitBtn").onclick = function () {
+        var user_ans = document.getElementById("answer").value;
+
+        if (user_ans == ans) {
+          alert("Well Done! Your answer is correct.");
+        } else {
+          alert(
+            "Wrong Answer! Correct Answer is " + ans + ". Please Try Again"
+          );
+        }
+        num1 = Math.floor(Math.random() * 10);
+        num2 = Math.floor(Math.random() * 10);
+        document.getElementById("value1").value = num1;
+        document.getElementById("value2").value = num2;
+        ans = num1 + num2;
+        document.getElementById("answer").value = "";
+      };
+    </script>
+  </body>
+</html>
